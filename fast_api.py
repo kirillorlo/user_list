@@ -14,12 +14,17 @@ class User:
 
 
 users = [
-    User(1, "John Doe", "john.doe@example.com", "password123"),
-    User(2, "Jane Smith", "jane.smith@example.com", "qwerty"),
-    User(3, "Bob Johnson", "bob.johnson@example.com", "123456"),
+    User(1, "Василий Теркин", "tervas@.ru", "zxc123"),
+    User(2, "Катя Иванова", "ivank@.ru", "qwerty"),
+    User(3, "Олег Петров", "petrow@.ru", "123456"),
 ]
 
 
 @app.get('/users')
-def user_list(request: Request):
+async def user_list(request: Request):
     return templates.TemplateResponse("user_list.html", {"request": request, "users": users})
+
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
